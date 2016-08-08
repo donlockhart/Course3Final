@@ -30,13 +30,15 @@ subsetted_df = main_df[, which(grepl("mean()|std()|subject|activity_id", names(m
 activities_df <- read.table("./Dataset/activity_labels.txt", col.names = c("id", "activity_description"))
 subsetted_df <- merge(subsetted_df, activities_df, by.x="activity_id", by.y="id")
 
-# Tidy up the frame
+# Drop unneeded column
 subsetted_df <- subsetted_df[, !(names(subsetted_df) %in% c("activity_id"))]
+
+# Get rid of funky characters in column names
 names(subsetted_df) <- gsub("-", "", names(subsetted_df))
 names(subsetted_df) <- gsub("\\(\\)", "", names(subsetted_df))
 subsetted_df <- subset(subsetted_df, select = c(subject, activity_description, tBodyAccmeanX:fBodyBodyGyroJerkMagmeanFreq))
-View(subsetted_df)
 
 # Create final dataset with averages per user activity
-#final_df <- subsetted_df %>% group_by(subject, activity_id)
-#  %>% summarize(mean())
+final_df <- subsetted_df %>% group_by(subject, activity_description) %>% 
+  summarize_each(funs(mean(.)), tBodyAccmeanX:fBodyBodyGyroJerkMagmeanFreq)
+write.table(final_df, "./Dataset/final.txt")
