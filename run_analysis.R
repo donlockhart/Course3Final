@@ -27,9 +27,16 @@ colnames(main_df) <- features
 subsetted_df = main_df[, which(grepl("mean()|std()|subject|activity_id", names(main_df)))]
 
 # Join to the activities dataset to show descriptive name
-activities_df <- read.table("./Dataset/activity_labels.txt", col.names = c("id", "description"))
+activities_df <- read.table("./Dataset/activity_labels.txt", col.names = c("id", "activity_description"))
 subsetted_df <- merge(subsetted_df, activities_df, by.x="activity_id", by.y="id")
+
+# Rearrange the frame
+subsetted_df <- subsetted_df[, !(names(subsetted_df) %in% c("activity_id"))]
 View(subsetted_df)
+
+# Create final dataset with averages per user activity
+#final_df <- subsetted_df %>% group_by(subject, activity_id)
+#  %>% summarize(mean())
 
 #To Do
 #Remove funky characters from column names
