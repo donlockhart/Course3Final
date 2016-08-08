@@ -1,3 +1,5 @@
+library(dplyr)
+
 # Combine the three datasets into one for test data
 test_subject_df <- read.table("./Dataset/test/subject_test.txt")
 test_df <- read.table("./Dataset/test/X_test.txt")
@@ -20,7 +22,9 @@ features_df <- read.table("./Dataset/features.txt", stringsAsFactors = FALSE)
 features <- features_df$V2
 features <- c(features, "feature_id", "subject")
 colnames(main_df) <- features
-View(main_df)
+
+# Extract only the std deviation and mean measurements
+subsetted = main_df[, which(grepl("mean()|std()|subject|feature_id", names(main_df)))]
 
 #To Do
 #Rename V1/V2 variables into something meaningful
