@@ -15,4 +15,12 @@ train_df$subject <- train_subject_df$V1
 # Add the test data onto the traing data
 main_df <- rbind(train_df, test_df)
 
-# Pivot the features.txt into a column name vector
+# Set the column names using the features as the labels
+features_df <- read.table("./Dataset/features.txt", stringsAsFactors = FALSE)
+features <- features_df$V2
+features <- c(features, "feature_id", "subject")
+colnames(main_df) <- features
+View(main_df)
+
+#To Do
+#Rename V1/V2 variables into something meaningful
