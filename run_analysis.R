@@ -34,11 +34,7 @@ subsetted_df <- merge(subsetted_df, activities_df, by.x="activity_id", by.y="id"
 subsetted_df <- subsetted_df[, !(names(subsetted_df) %in% c("activity_id"))]
 names(subsetted_df) <- gsub("-", "", names(subsetted_df))
 names(subsetted_df) <- gsub("\\(\\)", "", names(subsetted_df))
-#subsetted_df <- subset(subsetted_df, select = c(subject, activity_description, tBodyAccmeanX:fBodyBodyGyroJerkMagmeanFreq))
-#subject_column_index <- grep("subject", names(subsetted_df))
-#subsetted_df <- subsetted_df[, c(subject_column_index, 1:ncol(subsetted_df))[-subject_column_index]]
-#activity_column_index <- grep("activity_description", names(subsetted_df))
-#subsetted_df <- subsetted_df[, c(activity_column_index, 1:ncol(subsetted_df))[-activity_column_index]]
+subsetted_df <- subset(subsetted_df, select = c(subject, activity_description, tBodyAccmeanX:fBodyBodyGyroJerkMagmeanFreq))
 View(subsetted_df)
 
 # Create final dataset with averages per user activity
