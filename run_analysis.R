@@ -20,11 +20,16 @@ main_df <- rbind(train_df, test_df)
 # Set the column names using the features as the labels
 features_df <- read.table("./Dataset/features.txt", stringsAsFactors = FALSE)
 features <- features_df$V2
-features <- c(features, "feature_id", "subject")
+features <- c(features, "activity_id", "subject")
 colnames(main_df) <- features
 
 # Extract only the std deviation and mean measurements
-subsetted = main_df[, which(grepl("mean()|std()|subject|feature_id", names(main_df)))]
+subsetted_df = main_df[, which(grepl("mean()|std()|subject|activity_id", names(main_df)))]
+
+# Join to the activities dataset to show descriptive name
+activities_df <- read.table("./Dataset/activity_labels.txt", col.names = c("id", "description"))
+subsetted_df <- merge(subsetted_df, activities_df, by.x="activity_id", by.y="id")
+View(subsetted_df)
 
 #To Do
 #Rename V1/V2 variables into something meaningful
