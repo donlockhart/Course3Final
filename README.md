@@ -9,12 +9,19 @@ on determining human activity from smartphone datasets.  The final dataset inclu
 * The name of the activity being performed
 * Averages of all variable with std() and mean() in their name
 
+See the CodeBook.md for full details on the contents of the dataset.
+
 Files Included in Repository
 ----------------------------
 * README.md: This file!
 * CodeBook.md: Shows information about the data included in the final tidy dataset.
 * run_analysis.R: The R program file that transforms the raw data into the final output. 
 * The Dataset folder: The raw source data.  Refer to its README.txt file for further details.
+
+Running the Script
+------------------
+To produce the final output, run the run_analysis.R program.  A file named final.txt will be written to the Dataset folder.
+If you wish to load final.txt into R, execute `read.table("./Dataset/final.txt", header = TRUE)`.
 
 How the Final Dataset Was Produced
 ----------------------------------
@@ -25,3 +32,5 @@ How the Final Dataset Was Produced
 5. Merge the activity descriptions into the dataset.
 6. Put the variables into the desired order.
 7. Create final dataset with averages for each subject and activity.
+
+
