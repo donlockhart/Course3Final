@@ -1,27 +1,27 @@
-[Description of experiment](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
-[Dataset](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
+Coursera Getting and Cleaning Data Course Final
+===============================================
+The purpose of this project is to produce a tidy dataset based upon 
+[data]((https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)) 
+from [experiments](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) 
+on determining human activity from smartphone datasets.  The final dataset includes:
 
-The X_Train.txt is the main dataset with 561 columns of observations/features and 7352 row.
-There are no labels - they are in a separate file named features.txt.
+* A subject identifier representing the person
+* The name of the activity being performed
+* Averages of all variable with std() and mean() in their name
 
-The y_train.txt file has 7352 rows with one column for the activity id - the activity description is in activity_labels.txt.
+Files Included in Repository
+----------------------------
+* README.md: This file!
+* CodeBook.md: Shows information about the data included in the final tidy dataset.
+* run_analysis.R: The R program file that transforms the raw data into the final output. 
+* The Dataset folder: The raw source data.  Refer to its README.txt file for further details.
 
-The subject-test.txt has 7352 rows with once column indicating the person/subject id - there is no corresponding description file.
-
-
-Pseudo:
-For both the test and train folders, merge the three datasets into one.
-Combine the merged test and train datasets into one master dataset.
-Pivot the features.txt into a column name vector.
-Add the subject and activities to the vector.
-Add the name vector onto the master dataset.
-Subset the master dataset so that it only has the subject, activity name, and features with the "mean" and "stdev" in their name.
-
-Last dataset has subject, activity, and avg of each variable
-
-
-Don | Walking | tons of measurements
-Don | Sitting | tons of measurements
-Don | Walking | tons of measurements
-Don | Walking | tons of measurements
-Don | Sitting | tons of measurements
+How the Final Dataset Was Produced
+----------------------------------
+1. For both the test and train folders, combine the three datasets into one.
+2. Combine the test and train datasets into one main dataset.
+3. Use the contents of the features.txt file as column names for the dataset.
+4. Subset the subject, activity, and all variables which include std() and mean() in their names.
+5. Merge the activity descriptions into the dataset.
+6. Put the variables into the desired order.
+7. Create final dataset with averages for each subject and activity.
