@@ -28,7 +28,7 @@ features <- c(features, "activity_id", "subject")
 colnames(main_df) <- features
 
 # Extract only the std deviation and mean measurements
-subsetted_df = main_df[, which(grepl("mean()|std()|subject|activity_id", names(main_df)))]
+subsetted_df = main_df[, which(grepl("mean|std|subject|activity_id", names(main_df)))]
 
 # Join to the activities dataset to show descriptive name
 activities_df <- read.table("./Dataset/activity_labels.txt", col.names = c("id", "activity_description"))

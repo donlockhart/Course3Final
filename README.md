@@ -9,7 +9,7 @@ on determining human activity from smartphone datasets.  The final dataset inclu
 * The name of the activity being performed
 * Averages of all variable with std() and mean() in their name
 
-See the CodeBook.md for full details on the contents of the dataset.
+See the CodeBook.md for full details on the contents of the tidy dataset.
 
 Files Included in Repository
 ----------------------------
@@ -28,7 +28,8 @@ How the Final Dataset Was Produced
 1. For both the test and train folders, combine the three datasets into one.
 2. Combine the test and train datasets into one main dataset.
 3. Use the contents of the features.txt file as column names for the dataset.
-4. Subset the subject, activity, and all variables which include std() and mean() in their names.
+4. Subset the subject, activity, and all variables which include _std_ and _mean_ anywhere in their names
+(note that this will include variables named XXXmeanFreq, which is a weighted average). 
 5. Merge the activity descriptions into the dataset.
 6. Put the variables into the desired order.
 7. Create final dataset with averages for each subject and activity.

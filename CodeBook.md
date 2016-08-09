@@ -2,7 +2,7 @@ Codebook for Coursera Getting and Cleaning Data Course Final
 ============================================================
 This is a summary description of the Dataset/final.txt file.  
 For details on the source data from which this project is based, see the Dataset/features_info.txt file.
-The measure of unit for all variables, other than subject and activity_description, is standard gravity (I think). 
+The measure of unit for all variables, other than subject and activity_description, is standard gravity. 
 
 1. subject - an identifier from 1 to 30 for the person associated with the readings.
 2. activity_description - the activity being performed during a measurement.
