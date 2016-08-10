@@ -9,7 +9,7 @@ on determining human activity from smartphone datasets.  The final dataset inclu
 * The name of the activity being performed
 * Averages of all variable with std() and mean() in their name
 
-See the CodeBook.md for full details on the contents of the tidy dataset.
+See the [CodeBook](CodeBook.md) for full details on the contents of the tidy dataset.
 
 Files Included in Repository
 ----------------------------
