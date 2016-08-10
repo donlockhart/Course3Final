@@ -1,7 +1,7 @@
 Coursera Getting and Cleaning Data Course Final
 ===============================================
 The purpose of this project is to produce a tidy dataset based upon 
-[data]((https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)) 
+[data](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 from [experiments](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) 
 on determining human activity from smartphone datasets.  The final dataset includes:
 
