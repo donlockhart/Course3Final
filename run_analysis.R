@@ -45,4 +45,4 @@ subsetted_df <- subset(subsetted_df, select = c(subject, activity_description, t
 # Create final dataset with averages per user activity
 final_df <- subsetted_df %>% group_by(subject, activity_description) %>% 
   summarize_each(funs(mean(.)), tBodyAccmeanX:fBodyBodyGyroJerkMagmeanFreq)
-write.table(final_df, "./Dataset/final.txt")
+write.table(final_df, "./Dataset/final.txt", row.names = FALSE)
